@@ -1,6 +1,6 @@
 import os
 print ("Welcome to my Tool")
-ui_file= open('C:/ProjectSE/OpenCPN/src/toolbar.cpp','r')
+test_file= open('C:/ProjectSE/OpenCPN/src/toolbar.cpp','r')
 ui_object=['wxCaret','wxControl','wxCursor','wxDC','wxDropTarget',
            'wxLayoutConstraints','wxSizer','wxToolTip','wxWindowBase','wxWindow',
            'wxScrollHelper','wxFrame','wxMenuBar','wxMenuItem','wxToolBar',
@@ -21,8 +21,9 @@ count=1
 object_list=[]
 index=0
 object_name=""
+
 #print (ui_file.read())
-for line in ui_file:
+for line in test_file:
     words=line.split()
     #print(words)
     
@@ -36,19 +37,19 @@ for line in ui_file:
                         if(object_name.endswith(';')):
                             object_name=object_name[:-1]
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         elif(object_name.endswith(',')):
                             object_name=object_name[:-1]
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         elif(object_name.endswith('(')):
                             object_name=object_name[:-1]
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         elif(object_name.endswith(')')):
@@ -56,7 +57,7 @@ for line in ui_file:
                         else:
                             
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         
@@ -67,19 +68,19 @@ for line in ui_file:
                         if(object_name.endswith(';')):
                             object_name=object_name[:-1]
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         elif(object_name.endswith(',')):
                             object_name=object_name[:-1]
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         elif(object_name.endswith('(')):
                             object_name=object_name[:-1]
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                         elif(object_name.endswith(')')):
@@ -87,7 +88,7 @@ for line in ui_file:
                         else:
                             
                             object_list.append(object_name)
-                            print(line_num, word,object_list[index])
+                            #print(line_num, word,object_list[index])
                             count=count+1
                             index=index+1
                          
@@ -99,5 +100,35 @@ for line in ui_file:
     #print(line_num)
     line_num=line_num+1
     
-print ("Number of places ", count)
+"""with open('C:/ProjectSE/OpenCPN/src/toolbar.cpp', mode='rt', encoding='utf-8') as f:
+    text = f.read()
+
+
+for x in object_list:
+   search_word=x
+   if search_word in text:
+       with open('C:/ProjectSE/OpenCPN/src/toolbar.html', mode='wt', encoding='utf-8') as f:
+            f.write(text.replace(search_word, '<span style="color: red">{}</span>'.format(search_word)))
+
+   else:
+       print("The word is not in the text")
+"""
+with open("C:/ProjectSE/OpenCPN/src/toolbar.cpp") as f:
     
+    with open("C:/ProjectSE/OpenCPN/src/toolbar.txt", "w") as f1:
+        for line in f:
+            if "ROW" in line:
+                f1.write(line)
+        text = f1.read()
+for x in object_list:
+   search_word=x
+   if search_word in text:
+       print()
+       print(text.replace(search_word, '\033[44;33m{}\033[m'.format(search_word)))
+
+   else:
+       print("The word is not in the text")
+print ("Number of places ", count)
+
+    
+
