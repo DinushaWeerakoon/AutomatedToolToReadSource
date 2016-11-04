@@ -100,7 +100,7 @@ for line in test_file:
     #print(line_num)
     line_num=line_num+1
     
-"""with open('C:/ProjectSE/OpenCPN/src/toolbar.cpp', mode='rt', encoding='utf-8') as f:
+with open('C:/ProjectSE/OpenCPN/src/toolbar.cpp', mode='rt', encoding='utf-8') as f:
     text = f.read()
 
 
@@ -112,22 +112,7 @@ for x in object_list:
 
    else:
        print("The word is not in the text")
-"""
-with open("C:/ProjectSE/OpenCPN/src/toolbar.cpp") as f:
-    
-    with open("C:/ProjectSE/OpenCPN/src/toolbar.txt", "w") as f1:
-        for line in f:
-            if "ROW" in line:
-                f1.write(line)
-        text = f1.read()
-for x in object_list:
-   search_word=x
-   if search_word in text:
-       print()
-       print(text.replace(search_word, '\033[44;33m{}\033[m'.format(search_word)))
 
-   else:
-       print("The word is not in the text")
 print ("Number of places ", count)
 
     
